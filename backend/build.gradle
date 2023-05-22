@@ -1,0 +1,56 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "io.freefair.lombok" version "6.5.0.2"
+    id 'java'
+    id "com.diffplug.spotless" version "6.17.0"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.atilika.kuromoji:kuromoji-ipadic:0.9.0'
+
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // テスト用DBコンテナ管理
+    testImplementation "org.testcontainers:testcontainers:1.18.0"
+    testImplementation "org.testcontainers:junit-jupiter:1.18.0"
+    testImplementation "org.testcontainers:postgresql:1.18.0"
+
+    // DBテストの便利なやつ
+    // https://mvnrepository.com/artifact/com.github.database-rider/rider-junit5
+    testImplementation 'com.github.database-rider:rider-junit5:1.36.0'
+
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    runtimeOnly group: 'org.postgresql', name: 'postgresql'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+spotless {
+    format "misc", {
+        target "*.gradle", "*.md", "*.yaml", "*.yml"
+
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+    java {
+        googleJavaFormat()
+    }
+}
