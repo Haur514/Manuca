@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -102,3 +103,30 @@ dist
 
 # TernJS port file
 .tern-port
+=======
+### frontend ###
+# dependencies
+node_modules/
+
+### VS Code ###
+.vscode/*
+!.vscode/settings.json
+
+### Intellij IDEA ###
+.idea/*
+
+### backend ###
+# gradle
+/backend/.gradle
+
+# build
+/backend/bin/
+/backend/build/
+
+### local file ###
+.env
+restore.sql
+
+# misc
+.DS_Store
+>>>>>>> f5169eb (最低限の機能が完成)
