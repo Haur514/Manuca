@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,7 @@ public class ManuscriptEntity {
   private int id;
 
   @NonNull
-  @Column(columnDefinition="TEXT")
+  @Column(columnDefinition = "TEXT")
   private String manuscript;
 
   public ManuscriptEntity(String manuscript) {

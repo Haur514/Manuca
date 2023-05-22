@@ -1,4 +1,5 @@
 import { Box, Center } from "@chakra-ui/react";
+import React from "react";
 import { Manuscript } from "types";
 
 type Props = {
@@ -6,12 +7,10 @@ type Props = {
   phraseIndex: number;
 };
 
-function ReadWordPane({manuscript,phraseIndex}:Props) {
+function ReadWordPane({ manuscript, phraseIndex }: Props) {
   return (
     <Center h="100%" w="100vw">
-        <Box fontSize="3em">
-            {manuscript?.phrase[phraseIndex]}
-        </Box>
+      <Box fontSize="3em">{manuscript?.phrase[phraseIndex]}</Box>
     </Center>
   );
 }

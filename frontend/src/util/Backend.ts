@@ -10,7 +10,7 @@ export class Backend {
     const manuscripts: Manuscript[] = await axios
       .get(Backend.BASE + endpoint)
       .then((res) => res.data)
-      .catch(() => null)
+      .catch(() => null);
     console.log(manuscripts[0].phrase);
     return manuscripts;
   }

@@ -1,7 +1,7 @@
 export type Manuscript = {
   id: number;
-  phrase: string[]
-}
+  phrase: string[];
+};
 
 export type Item = {
   id: ItemId;
